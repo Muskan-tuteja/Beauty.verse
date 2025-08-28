@@ -79,7 +79,7 @@ header .icons {
   padding-right: 90px;
   position: relative;
 }
-header .icons .bag-count{
+header .icons .bag-count {
   position: absolute;
   top: 0;
   left: 15px;
@@ -87,16 +87,12 @@ header .icons .bag-count{
   margin-top: 13px;
   font-weight: bold;
   display: none;
-
-  
 }
 header .icons i {
   font-size: 30px;
-  
 }
 header .icons .fa-cart-shopping {
   color: rgb(218, 10, 80);
-  
 }
 header .icons .fa-heart {
   color: rgb(218, 10, 80);
@@ -176,6 +172,8 @@ header .icons .fa-heart {
 }
 
 .products .product {
+  height: 400px;
+
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
@@ -199,16 +197,20 @@ header .icons .fa-heart {
 }
 
 .products .product h2 {
-  font-size: 20px;
-  margin: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
   color: #333;
+  white-space: nowrap; /* text ko single line me rakhega */
+  overflow: hidden; /* extra text ko hide karega */
+  text-overflow: ellipsis; /* end me ... dikhayega */
+  width: 200px;
 }
 .products .product .price {
   font-size: 18px;
   font-weight: bold;
-  color: red;
-  margin-bottom: 10px;
-  text-decoration: line-through;
+  color: gray;
+  margin: 10px;
+  /* text-decoration: line-through; */
 }
 .products .product .price span {
   color: black;
@@ -224,6 +226,8 @@ header .icons .fa-heart {
   background: rgb(218, 10, 80);
   color: #fff;
   border: none;
+  margin: 20px 0;
+
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 30px;
@@ -233,4 +237,10 @@ header .icons .fa-heart {
 
 .product .btn3:hover {
   background: #c10750;
+}
+.hero1-section{
+  display: flex;
+  width: 100px;
+  height: 300px;
+
 }
