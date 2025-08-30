@@ -110,31 +110,51 @@ async function getData() {
   let data = productsData.products;
 
   onLoad(data);
+
   function onLoad(data) {
     let section = document.querySelector(".products");
+
+   
+     let cart = JSON.parse(localStorage.getItem("cart"));
+
+   
+    document.querySelector(".bag-count").textContent = cart.length;
+
     let items = ``;
     data.forEach((item) => {
       items += `
- <div class="product">
- <img src="${item.thumbnail}"/>
-<h2>${item.title}</h2> 
-  <p class="price">$${item.price}</p>
-   <p id="percentage">${item.discountPercentage}% off</p>
-
-    <button class="btn3" data-id="${item.id}">Add Card</button>
-    </div>`;
+        <div class="product">
+          <img src="${item.thumbnail}"/>
+          <h2>${item.title}</h2> 
+          <p class="price">$${item.price}</p>
+          <p id="percentage">${item.discountPercentage}% off</p>
+          <button class="btn3" data-id="${item.id}">Add to Cart</button>
+        </div>`;
     });
     section.innerHTML = items;
 
-    let buttons = document.querySelectorAll(".btn3")
-      buttons.style.display = "inline-block";
+    let buttons = document.querySelectorAll(".btn3");
+        let cartCount = document.querySelector(".bag-count");
+         cartCount.style.display = "inline-block"; 
+            let count = 0; 
 
-    buttons.forEach((button) =>{
-      button.addEventListener("click",()=>{
-        let id = button.getAttribute("data-id")
-        
-      })
-    })
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        let id = button.getAttribute("data-id");
+
+        console.log("Added to cart: product id =", id);
+
+       
+        if (!cart.includes(id)) {
+          cart.push(id);
+          document.querySelector(".bag-count").textContent = cart.length;
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+        count++;
+        cartCount.textContent = count;
+      });
+    });
   }
 }
 getData();
