@@ -128,7 +128,7 @@ async function getData() {
           <h2>${item.title}</h2> 
           <p class="price">$${item.price}</p>
           <p id="percentage">${item.discountPercentage}% off</p>
-          <button class="btn3" data-id="${item.id}">Add to Cart</button>
+          <button onclick="openCartPage()"class="btn3" data-id="${item.id}">Add to Cart</button>
         </div>`;
     });
     section.innerHTML = items;
@@ -158,3 +158,7 @@ async function getData() {
   }
 }
 getData();
+function openCartPage() {
+  window.location.href = "cart.html";
+}
+
