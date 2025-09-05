@@ -114,11 +114,14 @@ async function getData() {
   function onLoad(data) {
     let section = document.querySelector(".products");
 
-   
-     let cart = JSON.parse(localStorage.getItem("cart"));
+    // 🔴 Refresh hone par cart ko reset kar do
+    let cart = []; 
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-   
-    document.querySelector(".bag-count").textContent = cart.length;
+    // Bag count ko refresh pe hide kar do
+    let cartCount = document.querySelector(".bag-count");
+    cartCount.style.display = "none";
+    cartCount.textContent = "0";
 
     let items = ``;
     data.forEach((item) => {
@@ -128,16 +131,13 @@ async function getData() {
           <h2>${item.title}</h2> 
           <p class="price">$${item.price}</p>
           <p id="percentage">${item.discountPercentage}% off</p>
-          <button onclick="openCartPage()"class="btn3" data-id="${item.id}">Add to Cart</button>
+          <button onclick="openCartPage()" class="btn3" data-id="${item.id}">Add to Cart</button>
         </div>`;
     });
     section.innerHTML = items;
 
     let buttons = document.querySelectorAll(".btn3");
-        let cartCount = document.querySelector(".bag-count");
-         cartCount.style.display = "inline-block"; 
-            let count = 0; 
-
+    let count = 0;
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -145,20 +145,19 @@ async function getData() {
 
         console.log("Added to cart: product id =", id);
 
-       
         if (!cart.includes(id)) {
           cart.push(id);
-          document.querySelector(".bag-count").textContent = cart.length;
           localStorage.setItem("cart", JSON.stringify(cart));
+
+          count = cart.length; // count cart ke length se update karo
+          cartCount.textContent = count;
+          cartCount.style.display = "inline-block"; 
         }
-        count++;
-        cartCount.textContent = count;
       });
     });
   }
 }
+
 getData();
-function openCartPage() {
-  window.location.href = "cart.html";
-}
+
 

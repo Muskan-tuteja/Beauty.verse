@@ -85,9 +85,11 @@ header .icons .bag-count {
   margin-top: 13px;
   font-weight: bold;
   display: none;
+  
 }
 header .icons i {
   font-size: 30px;
+  
 }
 header .icons .fa-cart-shopping {
   color: rgb(218, 10, 80);
@@ -400,6 +402,126 @@ footer {
 
 
 
+
+
+
+
+
+/* Mobile First Approach */
+
+/* Small devices (max 600px) */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  header .logo {
+    padding-left: 0;
+    font-size: 16px;
+  }
+
+  header .nav-bar nav {
+    flex-direction: column;
+    gap: 10px;
+    display: none;
+  }
+
+  header .search-bar input {
+    width: 200px;
+  }
+
+  header .icons {
+    padding-right: 0;
+    margin-top: 10px;
+  }
+
+  .hero-section img {
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .hero-section .btn1 {
+    width: 160px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .products {
+    padding: 10px;
+    grid-template-columns: 1fr; /* ek row me ek product */
+  }
+
+  .shopping-img {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  header .icons i,p {
+display: none;
+  
+}
+
+
+  .img-box img {
+    height: 250px;
+  }
+
+  .user-contact {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn4 {
+    width: 100%;
+  }
+
+  footer .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Medium devices (tablets, up to 900px) */
+@media (max-width: 900px) {
+  header {
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  header .logo {
+    padding-left: 0;
+  }
+
+  header .nav-bar nav {
+    gap: 15px;
+    font-size: 16px;
+  }
+
+  .products {
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .shopping-img {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .img-box img {
+    height: 350px;
+  }
+}
+
+/* Large devices (desktops, 1200px+) */
+@media (min-width: 1200px) {
+  .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .shopping-img {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 
 
