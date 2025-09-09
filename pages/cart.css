@@ -1,0 +1,37 @@
+.items-details{
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-left{
+  width: 60%;
+ 
+}
+.product-total-amount{
+  width: 35%;
+  height: 500px;
+  background-color: blueviolet;
+}
+.product-left .product-lefts img{
+  height: 150px;
+}
+.product-left .product-lefts{
+   display: flex;
+   border: 2px solid black;
+   margin-bottom: 2px;
+   position: relative;
+
+}
+.product-left .product-lefts .product-left-detalis{
+ 
+  padding: 10px;
+}
+.product-left .product-lefts .product-left-detalis *{
+  margin-bottom: 20px;
+}
+.product-left .product-lefts .fa-circle-xmark{
+  padding-top: 5px;
+  position: absolute;
+  right: 10px;
+}

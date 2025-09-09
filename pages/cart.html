@@ -1,12 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="cart.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Beauty<span>Verse</span></h1>
+      </div>
+      <div class="nav-bar">
+        <nav>
+          <li>Home</li>
+          <li>About</li>
+          <li>Product</li>
+          <li>Shopping</li>
+          <li>Contact</li>
+        </nav>
+      </div>
+
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" placeholder="Search Here..." />
+      </div>
+
+      <div class="icons">
+        <div class="bag-count"></div>
+        <a href="pages/cart.html" target="_blank"
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+
+        <p>Cart</p>
+
+        <br />
+
+        <i class="fa-solid fa-heart"></i>
+        <p>Wishlist</p>
+      </div>
+    </header>
+
+    <section class="items-details">
+      <div class="product-left">
+        
+      </div>
+      <div class="product-total-amount"></div>
+      <div class="product-right"></div>
+    </section>
+    <script src="cart.js"></script>
+  </body>
 </html>

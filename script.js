@@ -112,16 +112,12 @@ async function getData() {
   onLoad(data);
 
   function onLoad(data) {
-    let section = document.querySelector(".products");
+    let products = document.querySelector(".products");
 
-    // 🔴 Refresh hone par cart ko reset kar do
-    let cart = []; 
-    localStorage.setItem("cart", JSON.stringify(cart));
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Bag count ko refresh pe hide kar do
-    let cartCount = document.querySelector(".bag-count");
-    cartCount.style.display = "none";
-    cartCount.textContent = "0";
+    if (cart.length !== 0)
+      document.querySelector(".bag-count").textContent = cart.length;
 
     let items = ``;
     data.forEach((item) => {
@@ -131,27 +127,22 @@ async function getData() {
           <h2>${item.title}</h2> 
           <p class="price">$${item.price}</p>
           <p id="percentage">${item.discountPercentage}% off</p>
-          <button onclick="openCartPage()" class="btn3" data-id="${item.id}">Add to Cart</button>
+          <button  class="btn3" data-id="${item.id}">Add to Cart</button>
         </div>`;
     });
-    section.innerHTML = items;
+    products.innerHTML = items;
 
     let buttons = document.querySelectorAll(".btn3");
-    let count = 0;
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        let id = button.getAttribute("data-id");
-
-        console.log("Added to cart: product id =", id);
+        let id =Number( button.getAttribute("data-id"));
+      
 
         if (!cart.includes(id)) {
           cart.push(id);
+          document.querySelector(".bag-count").textContent = cart.length;
           localStorage.setItem("cart", JSON.stringify(cart));
-
-          count = cart.length; // count cart ke length se update karo
-          cartCount.textContent = count;
-          cartCount.style.display = "inline-block"; 
         }
       });
     });
@@ -159,5 +150,3 @@ async function getData() {
 }
 
 getData();
-
-

@@ -84,7 +84,7 @@ header .icons .bag-count {
   font-size: 15px;
   margin-top: 13px;
   font-weight: bold;
-  display: none;
+
   
 }
 header .icons i {
@@ -451,7 +451,9 @@ footer {
   .products {
     padding: 10px;
     grid-template-columns: 1fr; /* ek row me ek product */
+    
   }
+  
 
   .shopping-img {
     grid-template-columns: 1fr;
