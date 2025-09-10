@@ -110,43 +110,45 @@ async function getData() {
   let data = productsData.products;
 
   onLoad(data);
+}
+function onLoad(data) {
+  let products = document.querySelector(".products");
 
-  function onLoad(data) {
-    let products = document.querySelector(".products");
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (cart.length !== 0)
+    document.querySelector(".bag-count").textContent = cart.length;
 
-    if (cart.length !== 0)
-      document.querySelector(".bag-count").textContent = cart.length;
-
-    let items = ``;
-    data.forEach((item) => {
-      items += `
+  let items = ``;
+  data.forEach((item) => {
+    items += `
         <div class="product">
           <img src="${item.thumbnail}"/>
           <h2>${item.title}</h2> 
           <p class="price">$${item.price}</p>
           <p id="percentage">${item.discountPercentage}% off</p>
-          <button  class="btn3" data-id="${item.id}">Add to Cart</button>
+          <button class="btn3" data-id="${item.id}">Add to Cart</button>
         </div>`;
+  });
+  products.innerHTML = items;
+
+  const buttons = document.querySelectorAll(".btn3");
+  console.log(buttons);
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      let id = Number(button.getAttribute("data-id"));
+
+      if (cart.includes(id)) {
+        alert("This product is already in your cart");
+        return;
+      }
+
+      cart.push(id);
+      document.querySelector(".bag-count").textContent = cart.length;
+
+      localStorage.setItem("cart", JSON.stringify(cart));
     });
-    products.innerHTML = items;
-
-    let buttons = document.querySelectorAll(".btn3");
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        let id =Number( button.getAttribute("data-id"));
-      
-
-        if (!cart.includes(id)) {
-          cart.push(id);
-          document.querySelector(".bag-count").textContent = cart.length;
-          localStorage.setItem("cart", JSON.stringify(cart));
-        }
-      });
-    });
-  }
+  });
 }
 
 getData();
