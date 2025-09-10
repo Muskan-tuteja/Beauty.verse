@@ -11,6 +11,8 @@ async function getData() {
   let productleft = document.querySelector(".product-left");
 
   let innerHTML = ``;
+  let totalMRP = 0;
+
 
   cartData.forEach((item) => {
     innerHTML += `<div class="product-lefts">
@@ -22,15 +24,20 @@ async function getData() {
             <p id="percentage">${item.discountPercentage}% off</p>
           </div>
         </div>`;
+        totalMRP += item.price;
+
   });
   productleft.innerHTML = innerHTML;
+    document.querySelector(".total-mrp").innerHTML = totalMRP;
+
+  document.querySelector(".total-amount").innerHTML = (totalMRP + 20).toFixed(2) ;
   
   const buttons = document.querySelectorAll(".fa-circle-xmark");
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       let id = Number(button.getAttribute("data-id"));
-      console.log("hello");
+     
 
      cart = cart.filter((i) => id != i);
       localStorage.setItem("cart", JSON.stringify(cart));

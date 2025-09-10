@@ -1,36 +1,57 @@
-.items-details{
+.items-details {
   display: flex;
   gap: 20px;
   padding: 20px;
 }
 
-.product-left{
+.product-left {
   width: 60%;
- 
 }
-.product-total-amount{
+.product-total-amount {
   width: 35%;
-  height: 500px;
-  background-color: blueviolet;
+  border: 1px solid rgba(0, 0, 0, 0.371);
+  padding: 10px;
+  
 }
-.product-left .product-lefts img{
+.product-total-amount h6{
+  color: red;
+}
+.product-total-amount * {
+  margin-bottom: 10px;
+}
+.product-total-amount *:not(h6,button) {
+  display: flex;
+  justify-content: space-between;
+}
+.product-total-amount button {
+  width: 100%;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  outline: none;
+  border: none;
+}
+.product-total-amount button:hover{
+  background-color: rgba(0, 0, 255, 0.436);
+}
+
+.product-left .product-lefts img {
   height: 150px;
 }
-.product-left .product-lefts{
-   display: flex;
-   border: 2px solid black;
-   margin-bottom: 2px;
-   position: relative;
 
+.product-left .product-lefts {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.344);
+  margin-bottom: 2px;
+  position: relative;
 }
-.product-left .product-lefts .product-left-detalis{
- 
+.product-left .product-lefts .product-left-detalis {
   padding: 10px;
 }
-.product-left .product-lefts .product-left-detalis *{
+.product-left .product-lefts .product-left-detalis * {
   margin-bottom: 20px;
 }
-.product-left .product-lefts .fa-circle-xmark{
+.product-left .product-lefts .fa-circle-xmark {
   padding-top: 5px;
   position: absolute;
   right: 10px;
